@@ -10,5 +10,12 @@ html{
     --bg-1:#FFFFFF;
     --bg-2:#F8FAFF;
     --black-1:#141414;
+    --gap:1.25rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: var(--gap);
 }
 
