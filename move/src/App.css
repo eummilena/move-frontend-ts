@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    --laranja:#AD2600;
+    --verde:#245B0A;
+    --bg-1:#FFFFFF;
+    --bg-2:#F8FAFF;
+    --black-1:#141414;
+}
+
