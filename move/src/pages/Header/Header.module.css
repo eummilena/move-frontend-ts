@@ -47,3 +47,9 @@
     gap: 2em;
     margin-left: 5em;
 }
+
+.button:hover{
+    color: var(--laranja);
+    background-color: var(--bg-1);
+    animation-duration: .2s;
+}
