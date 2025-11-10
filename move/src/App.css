@@ -37,6 +37,12 @@ button{
     text-transform: uppercase;
     cursor: pointer;
 }
+button:hover{
+    color: var(--laranja);
+    background-color: var(--bg-1);
+    animation-duration: .2s;
+    border: 1px solid var(--laranja);
+}
 
 h1 {
     font-size: clamp(1.5rem, 5vw, 3rem);
@@ -44,6 +50,7 @@ h1 {
 
 section{
     height: 100vh;
+    max-height: 100%;
 }
 p{
     font-size: 1rem;
