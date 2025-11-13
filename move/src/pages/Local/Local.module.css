@@ -1,0 +1,40 @@
+.section{
+    background-image: url(../../assets/images/map.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    gap: var(--gap);
+}
+
+.address{
+    position: relative;
+    width: 18em;
+    height: 5em;
+    padding: 1rem;
+    background: var(--bg-1);
+    border-radius: .5em;
+    font-weight: 500;
+    margin-right: 10%;
+
+}
+
+.address::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 10%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.local img{
+    width: 5rem;
+     margin-bottom: 6rem;
+     margin-right: 22em;
+}
