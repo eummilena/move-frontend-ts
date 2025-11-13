@@ -1,0 +1,34 @@
+.div{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: .8em;
+    border-radius: 10px;
+    z-index: 10;
+    left: 28%;
+}
+.video{
+    width: 30em;
+    height: auto;
+    color: var(--bg1);
+}
+.button{
+    background: red;
+    padding: 0.1em;
+    font-size: 22px;
+    border-radius: 10%;
+    align-self: flex-end;
+}
+.button:hover{
+    background-color: red;
+    color: var(--bg-1);
+    transition-duration: .2s;
+    border: 1px solid var(--bg-1);
+}
+
+.div figcaption{
+    color: var(--bg-1);
+    width: 30em;
+}
