@@ -5,6 +5,7 @@ import Services from './pages/Services/Services'
 import Move from './pages/Move/Move'
 import Works from './pages/Works/Works'
 import { DataContextProvider } from './context/DataContext'
+import Local from './pages/Local/Local'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Services />
       <Move />
       <Works />
+      <Local />
     </DataContextProvider>
   )
 }
