@@ -1,11 +1,14 @@
 import React, { createContext, useContext, useState, type PropsWithChildren } from 'react'
 
-type Button = {
+type IDataContext = {
+
+    slide: number;
+    setSlide: React.Dispatch<React.SetStateAction<number>>
     showVideo: boolean;
     setShowVideo: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const DataContext = createContext<Button | null>(null);
+const DataContext = createContext<IDataContext | null>(null);
 
 export const useData = () => {
     const context = useContext(DataContext);
@@ -16,9 +19,12 @@ export const useData = () => {
 export const DataContextProvider = ({ children }: PropsWithChildren) => {
 
     const [showVideo, setShowVideo] = useState(false);
+    const [slide, setSlide] = useState(1);
 
     return (
-        <DataContext.Provider value={{ showVideo, setShowVideo }}>
+        <DataContext.Provider value={{
+            slide, setSlide, showVideo, setShowVideo
+        }}>
             {children}
         </DataContext.Provider>
     )
