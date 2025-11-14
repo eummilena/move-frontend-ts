@@ -9,7 +9,7 @@ const Header = () => {
             <div className={styles.desc}>
                 <h1>Mudar-se nunca foi tão fácil antes.</h1>
                 <h2>Ajuda você a planejar, reservar toda a sua mudança do conforto da sua casa.</h2>
-                <Button >Faça seu orçamento</Button>
+                <Button className='button'>Faça seu orçamento</Button>
             </div>
 
         </header>

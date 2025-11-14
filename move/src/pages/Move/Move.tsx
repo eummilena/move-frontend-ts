@@ -55,7 +55,7 @@ const Move = () => {
                     ))}
                 </ul>
             </div>
-            <Button>Faça um orçamento online</Button>
+            <Button className='button'>Faça um orçamento online</Button>
         </section>
     )
 }

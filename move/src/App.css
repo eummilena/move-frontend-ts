@@ -27,7 +27,7 @@ body{
     padding: var(--gap);
 }
 
-button{
+.button{
     padding: 1em 2em;
     color: var(--bg-1);
     background: var(--laranja);
@@ -37,7 +37,7 @@ button{
     text-transform: uppercase;
     cursor: pointer;
 }
-button:hover{
+.button:hover{
     color: var(--laranja);
     background-color: var(--bg-1);
     animation-duration: .2s;
