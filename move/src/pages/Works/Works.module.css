@@ -19,16 +19,14 @@
     background-size: contain;
 }
 
-.play, 
-.play:hover{
+.play{
     background-color: transparent;
-}
-
-.play:hover{
     border: none;
 }
+
+
 .desc{
-        display: flex;
+    display: flex;
     flex-direction: column;
     align-items: start;
     gap: var(--gap);

@@ -11,6 +11,7 @@ html{
     --bg-2:#F8FAFF;
     --black-1:#141414;
     --gap:1.25rem;
+    --cinza:#f0f0f0;
 }
 
 body,html{
@@ -27,7 +28,7 @@ body{
     padding: var(--gap);
 }
 
-button{
+.button{
     padding: 1em 2em;
     color: var(--bg-1);
     background: var(--laranja);
@@ -37,7 +38,7 @@ button{
     text-transform: uppercase;
     cursor: pointer;
 }
-button:hover{
+.button:hover{
     color: var(--laranja);
     background-color: var(--bg-1);
     animation-duration: .2s;
@@ -54,4 +55,56 @@ section{
 }
 p{
     font-size: 1rem;
+}
+
+li{
+    list-style: none;
+}
+
+input,select{
+    background-color: var(--cinza);
+    border: none;
+    padding: .2em .5em;
+    border-radius: 5px;
+    width: 100%; 
+    height: 2.5em;
+}
+
+::placeholder{
+    color: #a1a1a1 ;
+}
+
+label{
+    font-weight: 600;
+    margin-top: .5em;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4.5em;
+    margin-bottom: 1.5rem;
+}
+
+fieldset{
+    border: none;
+}
+
+legend{
+    font-weight: 500;
+}
+
+input[type='radio'] {
+    accent-color: var(--black-1);
+    background: var(--bg-1);
+
+}
+textarea{
+    background-color: var(--cinza);
+     border: none;
+    padding: .2em .5em;
+    border-radius: 5px;
+    width: 100%;
+    height: 120px;
+    resize: none;
 }

@@ -1,0 +1,63 @@
+.steps, .step{
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    align-items: center;
+}
+
+.step {
+    transition: color 0.2s ease;
+}
+
+.step.active{
+    color:#000;
+}
+
+.step.disabled{
+    color: var(--cinza);
+    cursor: not-allowed;
+}
+
+.step span{
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    border-radius: 50%;
+    padding: .2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.step span.active{
+    color: var(--bg-1);
+    background-color: #000;
+}
+
+.step span.active:hover {
+    transform: scale(1.1);
+}
+
+.step span.disabled{
+    background-color: var(--cinza);
+    color:var(--bg-1);
+}
+
+.step::after{
+    content: '';
+    display: inline-flex;
+    width: 5em;
+    height: 1px;
+}
+.step.active::after{
+    background-color: #000;
+
+}
+.step.disabled::after{
+background-color: var(--cinza);
+}
+
+.step:last-child::after{
+    display: none;
+}

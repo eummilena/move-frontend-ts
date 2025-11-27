@@ -9,7 +9,7 @@
 
 }
 
-.section h2::after{
+.subtitle::after{
     content: '';
     width: 5em;
     height: 2px;
@@ -49,7 +49,7 @@
 .step{
 
     align-items: center;
-    padding: var(--gap);
+    padding:.5em;
     width: 20em;
     height: 7em;
     background-color: var(--color-2);  
@@ -59,6 +59,9 @@
     z-index: 10;
 }
 
+.stepDesc{
+    font-weight: 500;
+}
 .span{
     background-color: #cfcfcf;
     padding: 5px;
