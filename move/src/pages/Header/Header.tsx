@@ -1,6 +1,6 @@
 import Button from '../../components/Button'
 import styles from './Header.module.css'
-import Logo from '../../assets/images/logo-move.png'
+import Logo from '../../assets/images/logo-move.webp'
 import { useData } from '../../context/DataContext'
 import Form from '../Form/Form'
 
