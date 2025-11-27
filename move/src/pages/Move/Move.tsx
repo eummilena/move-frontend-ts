@@ -4,6 +4,8 @@ import home from '../../assets/images/house.svg'
 import truck from '../../assets/images/cargo-truck.svg'
 import boxes from '../../assets/images/stack-package.svg'
 import immediate from '../../assets/images/clock.svg'
+import { useData } from '../../context/DataContext'
+import Form from '../Form/Form'
 
 
 
@@ -36,9 +38,12 @@ const steps = [
 ]
 
 const Move = () => {
+
+    const { form, setForm } = useData();
+
     return (
         <section className={styles.section}>
-            <h2>Como funciona?</h2>
+            <h2 className={styles.subtitle}>Como funciona?</h2>
             <p>A move simplifica todo o processo de movimentação</p>
             <div className={styles.info} >
                 <ul>
@@ -48,14 +53,15 @@ const Move = () => {
                                 <img src={img} alt='' className={styles.img} />
                             </span>
                             <div className={styles.step}>
-                                <h5>{step}</h5>
+                                <p className={styles.stepDesc}>{step}</p>
                                 <p>{desc}</p>
                             </div>
                         </li>
                     ))}
                 </ul>
             </div>
-            <Button className='button'>Faça um orçamento online</Button>
+            <Button className='button' onClick={() => setForm(true)}>Faça um orçamento online</Button>
+            {form && <Form />}
         </section>
     )
 }

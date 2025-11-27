@@ -22,7 +22,7 @@ const Works = () => {
             <div className={styles.desc}>
                 <h2>Faça sua mudança com segurança e sem dor de cabeça.</h2>Em apenas alguns cliques você pode receber imediatamente um orçamento com preço fixo personalizado de acordo com suas necessidades.
                 <p>Fazemos um esforço extra para garantir que voçê possa relaxar completamente no dia da mudança.  Já movermos mais de 8.000 apenas no ano passado.</p>
-                <h4>Veja {'>'}</h4>
+                <h3>Veja {'>'}</h3>
             </div>
         </section>
     )
