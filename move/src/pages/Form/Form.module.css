@@ -13,7 +13,7 @@
 
 .modalForm{
     background-color: var(--bg-1);
-    height: 60vh;
+    height: 90vh;
     border-radius: 1em;
     display: flex;
     flex-direction: column;
@@ -22,18 +22,34 @@
     gap: var(--gap);
 }
 
+.formGrid{
+    display: grid;
+    grid-template:"inputs buttons"
+    /3fr 150px;
+    gap: 5em; 
+}
+
 .form{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: var(--gap);
+
+
+}
+
+.inputs{
+    grid-area: inputs;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
 }
 
 .buttons{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: var(--bg-1);
+    justify-content: center;
+    gap: .2em;
+    grid-area: buttons;
 }
 
 
@@ -54,7 +70,7 @@
 .next{
     background: var(--verde);
     color: var(--bg-1);
-    border-radius: 2em;
+    border-radius: 0.5em;
 }
 
 .prev:disabled{
@@ -64,4 +80,40 @@
 .next:disabled{
     background-color: #BEFF9F;
     cursor:auto;
+}
+
+.closeButton{
+    padding: 1em 2em;
+    color: var(--bg-1);
+    background: var(--black-1);
+}
+.close, .closeButton{
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: .5em;
+    border: none;
+
+}
+.close:hover,.closeButton:hover{
+transform: scale(1.1);
+}
+
+
+.close{
+    position: absolute;
+    top: 1rem;
+    right: 4rem;
+    padding: 0.5em;
+    background-color: var(--laranja);
+    color: var(--bg-1);
+}
+
+.check{
+    width: 5em;
+}
+
+.disappear{
+    display: none;
 }
