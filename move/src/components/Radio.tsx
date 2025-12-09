@@ -1,53 +1,53 @@
-import React from 'react'
-import { useData } from '../context/DataContext'
+import React, { forwardRef } from "react";
 
-type RadioProps = React.ComponentProps<'input'> & {
-    option?: React.ReactNode
-    options: [string, string]
-    checked?: boolean
-    setValue?: (value: string) => void
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-    legend?: string
-}
+type RadioProps = {
+    legend?: string;
+    options: string[];
+    error?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Radio: React.FC<RadioProps> = ({ name, value: propValue, option, options, checked, setValue, onChange, id, legend, ...props }) => {
-    const { value: ctxValue, setValue: ctxSetValue } = useData()
+const Radio = forwardRef<HTMLInputElement, RadioProps>(
+    ({ name, options, legend, error, value, onChange, onBlur, ...props }, ref) => {
+        return (
+            <fieldset className="row">
+                <legend>{name}</legend>
 
-    const groupValue = propValue ?? ctxValue
-    const groupSetValue = setValue ?? ctxSetValue
+                {options.map((op, index) => {
+                    const id = `${name}-${op}`;
 
-    // Segurança: se por algum motivo `options` não tiver exatamente duas, normaliza para os dois primeiros
-    const opts = Array.isArray(options) ? options.slice(0, 2) as [string, string] : ['', '']
+                    return (
+                        <div
+                            key={op}
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                gap: "10px",
+                            }}
+                        >
+                            <input
+                                type="radio"
+                                id={id}
+                                name={name}
+                                value={op}
+                                checked={value === op}
+                                onChange={onChange}
+                                onBlur={onBlur}
+                                ref={ref}
+                                {...props}
+                            />
+                            <label htmlFor={id}>{op}</label>
+                        </div>
+                    );
+                })}
 
-    return (
-        <fieldset className='row'>
-            <legend>{legend ?? name}</legend>
-            {opts.map((op) => {
-                const inputId = `${name}-${op}`
-                const isChecked = groupValue === op
-                function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-                    if (groupSetValue) groupSetValue(e.target.value)
-                    if (onChange) onChange(e)
-                }
-                return (
-                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px' }} key={op}>
-                        <input
-                            type="radio"
-                            id={inputId}
-                            name={name}
-                            value={op}
-                            checked={isChecked}
-                            onChange={handleChange}
-                            {...props}
-                        />
-                        <label htmlFor={inputId}>{op}</label>
-                    </div>
+                {error && (
+                    <span style={{ color: "red", fontSize: "0.8rem" }}>{error}</span>
+                )}
+            </fieldset>
+        );
+    }
+);
 
-                )
-            })}
-        </fieldset>
-    )
-}
-
-
-export default Radio
+// Radio.displayName = "Radio";
+export default Radio;

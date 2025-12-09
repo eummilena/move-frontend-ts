@@ -1,54 +1,50 @@
-import React from 'react'
 import Input from '../../components/Input'
 import { useData } from '../../context/DataContext'
 
 const StepInfo = () => {
-
+    const { register, errors, touchedFields } = useData();
 
     return (
         <div>
-            <div className='row'>
+            <div className="row">
                 <Input
-                    label='Nome'
-                    id='nome'
-                    type='text'
-                    placeholder='Ex: Maria'
-                    required
-                    aria-required='true'
+                    label="Nome"
+                    id="nome"
+                    placeholder="Ex: Maria"
+                    {...register('nome')}
+                    error={touchedFields.nome ? errors.nome?.message : undefined}
                 />
 
                 <Input
                     label="Sobrenome"
                     id="sobrenome"
-                    type="text"
-                    placeholder='Ex: Silva'
-                    required
-                    aria-required='true'
+                    placeholder="Ex: Silva"
+                    {...register('sobrenome')}
+                    error={touchedFields.sobrenome ? errors.sobrenome?.message : undefined}
                 />
-
             </div>
-            <div className='row'>
+
+            <div className="row">
                 <Input
                     label="Email"
-                    id='email'
+                    id="email"
                     type="email"
-                    placeholder='Ex: nome@email.com'
-                    required
-                    aria-required='true'
-                    autoComplete='on'
+                    autoComplete="on"
+                    placeholder="Ex: nome@email.com"
+                    {...register('email')}
+                    error={touchedFields.email ? errors.email?.message : undefined}
                 />
 
                 <Input
                     label="Telefone"
                     id="telefone"
-                    type="text"
-                    placeholder='(XX) - X XXXX-XXXX'
-                    aria-required='true'
+                    placeholder="(XX) - X XXXX-XXXX"
+                    {...register('telefone')}
+                    error={touchedFields.telefone ? errors.telefone?.message : undefined}
                 />
-
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default StepInfo
+export default StepInfo;

@@ -1,23 +1,32 @@
-import React, { type CSSProperties } from 'react'
+import React, { type CSSProperties, forwardRef } from 'react';
 
 type InputProps = React.ComponentProps<'input'> & {
   label: string;
-}
+  error?: string;
+};
 
 const style: CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
-}
+};
 
-const Input = ({ id, label, ...props }: InputProps) => {
-
+const Input = ({ id, label, error, ...props }: InputProps) => {
   return (
     <div style={style}>
-      <label htmlFor={id}>{label}
-        <input id={id} name={id} {...props} />
+      <label htmlFor={id}>
+        {label}
+        <input id={id}  {...props} />
       </label>
-    </div>
-  )
-}
 
-export default Input
+      {error && (
+        <span style={{ color: 'red', fontSize: '0.8rem' }}>
+          {error}
+        </span>
+      )}
+    </div>
+  );
+};
+
+// Input.displayName = 'Input';
+
+export default Input;

@@ -1,22 +1,32 @@
-import type { ComponentProps } from "react";
+import { type ComponentProps } from "react";
 
-
-type IDateInput = ComponentProps<'input'> & {
+type IDateInput = ComponentProps<"input"> & {
     label: string;
-}
+    error?: string;
+};
 
-const InputDate = ({ label, id, ...props }: IDateInput) => {
-
-    const inputId = label.replaceAll(' ', '-').toLowerCase();
+const InputDate = ({ label, id, error, ...props }: IDateInput) => {
+    const inputId = id || label.replaceAll(" ", "-").toLowerCase() || "date-input";
 
     return (
-        <div>
-            <div>
-                <label htmlFor={inputId}>{label}</label>
-                <input type='date' id={inputId} name={inputId} required {...props} />
-            </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+            <label htmlFor={inputId}>{label}</label>
+
+            <input
+                type="date"
+                id={inputId}
+                {...props}
+            />
+
+            {error && (
+                <span style={{ color: "red", fontSize: "0.8rem" }}>
+                    {error}
+                </span>
+            )}
         </div>
-    )
+    );
 }
 
-export default InputDate
+
+// InputDate.displayName = "InputDate";
+export default InputDate;

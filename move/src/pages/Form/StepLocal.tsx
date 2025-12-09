@@ -1,73 +1,60 @@
-import React from 'react'
-import Input from '../../components/Input'
+import Input from '../../components/Input';
 import Select from '../../components/Select';
 import InputDate from '../../components/InputDate';
-
-const estados = [
-    "Acre",
-    "Alagoas",
-    "Amapá",
-    "Amazonas",
-    "Bahia",
-    "Ceará",
-    "Distrito Federal",
-    "Espírito Santo",
-    "Goiás",
-    "Maranhão",
-    "Mato Grosso",
-    "Mato Grosso do Sul",
-    "Minas Gerais",
-    "Pará",
-    "Paraíba",
-    "Paraná",
-    "Pernambuco",
-    "Piauí",
-    "Rio de Janeiro",
-    "Rio Grande do Norte",
-    "Rio Grande do Sul",
-    "Rondônia",
-    "Roraima",
-    "Santa Catarina",
-    "São Paulo",
-    "Sergipe",
-    "Tocantins"
-];
-
+import { useData } from '../../context/DataContext';
+import { EstadosBrasil } from '../../types/types';
 
 const StepLocal = () => {
+    const { register, errors, touchedFields } = useData();
+
     return (
         <div>
             <Input
-                label='Endereço para retirada'
-                id='endereco'
-                placeholder='Ex: Rua 123, n 9, Centro'
-                name='endereco'
-                autoComplete='on'
+                label="Endereço para retirada"
+                id="endereco"
+                autoComplete="on"
+                placeholder="Ex: Rua 123, n 9, Centro"
+                {...register("endereco")}
+                error={touchedFields.endereco ? errors.endereco?.message : undefined}
             />
+
             <div className="row">
                 <Input
-                    label='Cidade'
-                    id='cidade'
-                    placeholder='Campo Grande'
-                    name='cidade'
+                    label="Cidade"
+                    id="cidade"
+                    placeholder="Campo Grande"
+                    {...register("cidade")}
+                    error={touchedFields.cidade ? errors.cidade?.message : undefined}
                 />
+
                 <Select
-                    options={estados}
-                    label='Estado'
+                    label="Estado"
+                    id="estados"
+                    options={EstadosBrasil}
+                    {...register("estados")}
+                    error={touchedFields.estados ? errors.estados?.message : undefined}
                 />
             </div>
+
             <div className="row">
                 <Input
-                    label='CEP'
-                    id='cep'
+                    label="CEP"
+                    id="cep"
+                    {...register("cep")}
+                    error={touchedFields.cep ? errors.cep?.message : undefined}
                 />
+
                 <InputDate
-                    label='Data do envio'
-                    placeholder='Selecione uma data'
+                    label="Data do envio"
+                    placeholder="Selecione uma data"
+                    {...register("data", {
+                        setValueAs: (value) => value ? new Date(value) : undefined
+                    })}
+                    error={touchedFields.data ? errors.data?.message : undefined}
                 />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default StepLocal
+export default StepLocal;
