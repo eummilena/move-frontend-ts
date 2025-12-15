@@ -4,13 +4,15 @@ import Select from "../../components/Select";
 import Textarea from "../../components/Textarea";
 import { useData } from '../../context/DataContext';
 import { TamanhoMudanca } from "../../types/types";
+import useMedia from "../../hooks/useMedia";
 
 const StepItems = () => {
     const { register, errors, control, touchedFields } = useData();
+    const isMobile = useMedia('(max-width:1000px)');
 
     return (
         <div>
-            <div className="row">
+            <div className={`${isMobile ? 'col' : 'row'}`}>
                 <Select
                     label="Tamanho da mudança"
                     options={TamanhoMudanca}
@@ -35,7 +37,7 @@ const StepItems = () => {
                 />
             </div>
 
-            <div className="row">
+            <div className={`${isMobile ? 'col' : 'row'}`}>
                 <Textarea
                     label="Descrição dos Móveis"
                     id="descricao"

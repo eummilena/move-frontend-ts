@@ -1,6 +1,7 @@
 import React from 'react'
 import { useData } from '../../context/DataContext'
 import styles from './Steps.module.css'
+import useMedia from '../../hooks/useMedia'
 
 
 
@@ -26,20 +27,24 @@ const steps = [
 const Steps = () => {
 
     const { slide } = useData();
+    const isMobile = useMedia('(max-width:1000px)');
 
+
+    const stepsToRender = isMobile ? steps.filter(step => step.id === slide) : steps;
 
     return (
         <nav aria-label="Progresso do formulário de mudança">
+
             <ol className={styles.steps}>
-                {steps.map((step) => (
+                {stepsToRender.map((step) => (
                     <li key={step.id} className={`${styles.step} 
-                            ${slide >= step.id ? styles.active : styles.disabled}`}
+                        ${slide >= step.id ? styles.active : styles.disabled}`}
                         aria-current={slide === step.id ? 'step' : undefined}
                         aria-disabled={slide < step.id}
                     >
                         <span
                             className={`
-                            ${slide >= step.id ? styles.active : styles.disabled}`}
+                        ${slide >= step.id ? styles.active : styles.disabled}`}
                             aria-label={`Etapa ${step.id} de ${steps.length}`}
                         >
                             {step.id}

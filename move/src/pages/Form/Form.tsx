@@ -8,11 +8,13 @@ import StepLocal from './StepLocal';
 import styles from './Form.module.css'
 import Steps from './Steps';
 import type { IFormData } from '../../schema/formSchema';
+import useMedia from '../../hooks/useMedia';
 
 
 
 const Form = () => {
     const { slide, setSlide, form, setForm, handleSubmit, isDirty, trigger } = useData();
+    const isMobile = useMedia('(max-width:1000px)');
 
     const stepsMap: Record<number, ReactNode> = {
         1: <StepInfo />,
@@ -62,23 +64,23 @@ const Form = () => {
     }
 
     return (
-        <div className={styles.modal}
+        <div className={`${styles.modal}`}
             role="dialog"
             aria-modal="true"
             aria-labelledby="Formulário"
         >
             <Button className={` ${styles.close}`} onClick={() => setForm(false)}
             >Fechar</Button>
-            <div className={styles.modalForm}>
+            <div className={`${styles.modalForm}`}>
                 <h1>Vamos começar?</h1>
                 <Steps />
-                <form className={`${slide === 4 ? styles.form : styles.formGrid}`} onSubmit={handleSubmit(onSubmit)}>
+                <form className={`${slide === 4 ? styles.form : styles.formGrid} ${isMobile ? styles.formMobile : ''}`} onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.inputs}>
                         {stepsMap[slide]}
                     </div>
                     <div className={`${slide === 4 ? styles.disappear : styles.buttons}`}>
-                        <Button onClick={prevStep} disabled={slide === 1} className={styles.prev}>Voltar</Button>
-                        <Button onClick={nextStep} disabled={!isDirty} className={styles.next}>{slide === 3 ? 'Enviar' : 'Próximo'}</Button>
+                        <Button onClick={prevStep} disabled={slide === 1} className={`${styles.prev}`}>Voltar</Button>
+                        <Button onClick={nextStep} disabled={!isDirty} className={`${styles.next}`}>{slide === 3 ? 'Enviar' : 'Próximo'}</Button>
                     </div>
                 </form>
             </div>

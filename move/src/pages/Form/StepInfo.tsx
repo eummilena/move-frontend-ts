@@ -1,12 +1,14 @@
 import Input from '../../components/Input'
 import { useData } from '../../context/DataContext'
+import useMedia from '../../hooks/useMedia';
 
 const StepInfo = () => {
     const { register, errors, touchedFields } = useData();
+    const isMobile = useMedia('(max-width:1000px)');
 
     return (
         <div>
-            <div className="row">
+            <div className={`${isMobile ? 'col' : 'row'}`}>
                 <Input
                     label="Nome"
                     id="nome"
@@ -24,7 +26,7 @@ const StepInfo = () => {
                 />
             </div>
 
-            <div className="row">
+            <div className={`${isMobile ? 'col' : 'row'}`}>
                 <Input
                     label="Email"
                     id="email"

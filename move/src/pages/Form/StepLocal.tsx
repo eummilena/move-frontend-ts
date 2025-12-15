@@ -3,9 +3,11 @@ import Select from '../../components/Select';
 import InputDate from '../../components/InputDate';
 import { useData } from '../../context/DataContext';
 import { EstadosBrasil } from '../../types/types';
+import useMedia from '../../hooks/useMedia';
 
 const StepLocal = () => {
     const { register, errors, touchedFields } = useData();
+    const isMobile = useMedia('(max-width:1000px)');
 
     return (
         <div>
@@ -18,7 +20,7 @@ const StepLocal = () => {
                 error={touchedFields.endereco ? errors.endereco?.message : undefined}
             />
 
-            <div className="row">
+            <div className={`${isMobile ? 'col' : 'row'}`}>
                 <Input
                     label="Cidade"
                     id="cidade"
@@ -36,7 +38,7 @@ const StepLocal = () => {
                 />
             </div>
 
-            <div className="row">
+            <div className={`${isMobile ? 'col' : 'row'}`}>
                 <Input
                     label="CEP"
                     id="cep"
