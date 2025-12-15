@@ -1,21 +1,55 @@
 import './App.css'
+import { lazy, Suspense } from 'react'
 import Header from './pages/Header/Header'
-import Services from './pages/Services/Services'
-import Move from './pages/Move/Move'
-import Works from './pages/Works/Works'
-import Local from './pages/Local/Local'
 import { DataContextProvider } from './context/DataContext'
 
+const Services = lazy(() => import('./pages/Services/Services'))
+const Move = lazy(() => import('./pages/Move/Move'))
+const Works = lazy(() => import('./pages/Works/Works'))
+const Local = lazy(() => import('./pages/Local/Local'))
+
+function LoadingSpinner() {
+  return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      width: '100%'
+    }}>
+      <div style={{
+        border: "1px solid var(--laranja)",
+        width: "var(--gap)",
+        height: "var(--gap)",
+        borderRadius: "50%",
+        borderRightColor: "var(--cinza)",
+        animation: "spin 1s infinite"
+      }}>
+        <style>
+          {
+            `@keyframes spin {
+                      to{
+                          transform: rotate(360deg);
+                      }
+                  }
+                      `
+          }
+        </style>
+      </div>
+    </div>
+  )
+}
+
 function App() {
-
-
   return (
     <DataContextProvider>
       <Header />
-      <Services />
-      <Move />
-      <Works />
-      <Local />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Services />
+        <Move />
+        <Works />
+        <Local />
+      </Suspense>
     </DataContextProvider>
   )
 }

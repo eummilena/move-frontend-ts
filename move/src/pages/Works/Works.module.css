@@ -1,27 +1,20 @@
 .section{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: var(--gap);
+    padding: var(--gap);
 }
 
-.section div{
-    width: 40vw;
-
-}
-.video{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url(../../assets/images/notebook.webp);
-    background-position: center ;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.play{
-    background-color: transparent;
-    border: none;
+.buttonVideo{
+    border: 1px solid var(--laranja);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: .5em;
+    border-radius: 5px;
+    color: var(--laranja);
 }
 
 
@@ -31,6 +24,5 @@
     align-items: start;
     gap: var(--gap);
 }
-.desc h4{
-    color: var(--laranja);
-}
+
+

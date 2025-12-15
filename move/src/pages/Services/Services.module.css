@@ -16,7 +16,6 @@
     flex-direction: row;
     justify-content: space-between;
     gap: var(--gap);
-    flex-wrap: wrap;
 }
 
 .services article{
@@ -39,11 +38,24 @@
     color: var(--laranja);
 }
 
-@media (max-width:540px) {
+@media (max-width:860px) {
     .section{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 40em;
+        
+    }
+    .services{
+        display: flex;
+        flex-direction: column;
     }
 }
+
+@media (max-width:768px) {
+   
+    .section{
+    padding: 40rem 0;
+    }
+}
+
