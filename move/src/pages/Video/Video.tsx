@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import VideoMove from '/video/move-video.mp4?url'
 import Button from '../../components/Button'
 import { useData } from '../../context/DataContext'
-import { IoCloseSharp } from "react-icons/io5";
 import styles from './Video.module.css'
 
 
@@ -29,7 +28,7 @@ const Video = () => {
             <Button
                 onClick={() => setShowVideo(false)}
                 className={styles.button} aria-label="Fechar vídeo">
-                <IoCloseSharp aria-hidden="true" />
+                Fechar
             </Button>
             <figure>
                 <video controls
@@ -50,7 +49,7 @@ const Video = () => {
 
                 </video>
                 <figcaption className='sr-only'>
-                    Vídeo mostrando dois homens colocando caixas na parte de trás de uma van. — duração 10 segundos.
+                    Dois homens colocando caixas na parte de trás de uma van. — duração 10 segundos.
                 </figcaption>
             </figure>
         </div>

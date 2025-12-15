@@ -1,19 +1,18 @@
-import React from 'react'
 import styles from './Local.module.css'
-import gps from '../../assets/images/gps.svg'
+import logo from '../../assets/images/logo-move.webp'
 
 const Local = () => {
     return (
-        <section className={styles.section}>
+        <footer className={styles.footer}>
+            <div className={styles.logo}>
+                <img src={logo} alt="Logo move" loading='lazy' />
+            </div>
             <div className={styles.address}>
-                <p>Move - Centro, n123</p>
-                <span> (xx)  x xxxx-xxxx</span>
-                <span> (xx)  x xxxx-xxxx</span>
+                <h3>Move - Centro, n123</h3>
+                <p> (61) 3162-0215</p>
+                <p> (61) 2131-5768</p>
             </div>
-            <div className={styles.local}>
-                <img src={gps} alt="Ponto de localização" />
-            </div>
-        </section>
+        </footer>
     )
 }
 
