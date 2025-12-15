@@ -57,8 +57,7 @@ export const schemaStep3 = z.object({
         .optional()
         .or(z.literal("")),
 
-    data: z.coerce
-        .date().refine((date) => date > new Date(), { message: 'Data inválida' })
+    data: z.date().refine((date) => date > new Date(), { message: 'Data inválida' })
 
 })
 
