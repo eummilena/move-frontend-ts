@@ -101,3 +101,18 @@
 .info img{
     height: calc(50vh - 2%);
 }
+
+@media (max-width:414px) {
+    .section{
+        padding: 1em;
+    }
+    .step{
+        width: 18em;
+        padding: .4em;
+        height: 7.5rem;
+    }
+    .steps{
+        gap: 1rem;
+    }
+    
+}

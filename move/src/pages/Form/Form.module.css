@@ -31,8 +31,6 @@
 
 .form{
     display: flex;
-
-
 }
 
 .inputs{
@@ -116,4 +114,12 @@ transform: scale(1.1);
 
 .disappear{
     display: none;
+}
+
+/* Modal */
+
+.formMobile{
+    display: flex;
+    flex-direction: column;
+  
 }
