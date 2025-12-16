@@ -3,6 +3,7 @@ import { useForm, type Control, type UseFormReturn, type UseFormWatch, type Reso
 import type { IFormData } from '../schema/formSchema';
 import { formSchema } from '../schema/formSchema';
 import { zodResolver } from "@hookform/resolvers/zod"
+import type { OrcamentoResponse } from '../types/orcamento';
 
 
 
@@ -24,6 +25,12 @@ type IDataContext = {
     watch: UseFormWatch<IFormData>;
     trigger: ReturnType<typeof useForm<IFormData>>["trigger"];
     touchedFields: ReturnType<typeof useForm<IFormData>>['formState']['touchedFields'];
+    loading: boolean;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    error: string;
+    setError: React.Dispatch<React.SetStateAction<string>>;
+    orcamento: OrcamentoResponse | null;
+    setOrcamento: React.Dispatch<React.SetStateAction<OrcamentoResponse | null>>;
 }
 
 
@@ -42,6 +49,9 @@ export const DataContextProvider = ({ children }: PropsWithChildren) => {
     const [slide, setSlide] = useState(1);
     const [value, setValue] = useState('');
     const [form, setForm] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [orcamento, setOrcamento] = useState<OrcamentoResponse | null>(null);
+    const [error, setError] = useState("");
 
     const { handleSubmit, register, control, watch, trigger, formState: { errors, isDirty, isValid, touchedFields }
     } = useForm<IFormData>({
@@ -57,7 +67,9 @@ export const DataContextProvider = ({ children }: PropsWithChildren) => {
             value, setValue, form, setForm,
             handleSubmit, errors, register,
             isDirty, isValid, control,
-            trigger, watch, touchedFields
+            trigger, watch, touchedFields,
+            loading, setLoading, orcamento,
+            setOrcamento, error, setError
         }}>
             {children}
         </DataContext.Provider>
