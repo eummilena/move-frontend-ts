@@ -113,3 +113,7 @@ textarea{
     height: 120px;
     resize: none;
 }
+
+.error{
+    color:rgba(224, 32, 32, 0.699);
+}
