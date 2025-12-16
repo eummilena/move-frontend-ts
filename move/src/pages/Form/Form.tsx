@@ -9,11 +9,17 @@ import styles from './Form.module.css'
 import Steps from './Steps';
 import type { IFormData } from '../../schema/formSchema';
 import useMedia from '../../hooks/useMedia';
+import { criarOrcamento } from '../../services/orcamento.api.ts';
+import Loading from '../../components/Loading.tsx';
 
 
 
 const Form = () => {
-    const { slide, setSlide, form, setForm, handleSubmit, isDirty, trigger } = useData();
+    const { slide, setSlide, form, setForm,
+        handleSubmit, isDirty, trigger, loading,
+        setLoading, setError,
+        setOrcamento } = useData();
+
     const isMobile = useMedia('(max-width:1000px)');
 
     const stepsMap: Record<number, ReactNode> = {
@@ -59,16 +65,29 @@ const Form = () => {
     }, [form, setForm])
 
 
-    const onSubmit = (data: IFormData) => {
-        console.log(data);
-    }
+    const onSubmit = async (data: IFormData) => {
+        try {
+            setLoading(true);
+            setError("");
 
+            const response = await criarOrcamento(data);
+
+            setOrcamento(response);
+
+        } catch {
+            setError("Error ao gerar orçamento");
+        } finally {
+            setLoading(false);
+        }
+
+    }
     return (
         <div className={`${styles.modal}`}
             role="dialog"
             aria-modal="true"
             aria-labelledby="Formulário"
         >
+            {loading && <div className={styles.loadingOverlay}><Loading overlay /></div>}
             <Button className={` ${styles.close}`} onClick={() => setForm(false)}
             >Fechar</Button>
             <div className={`${styles.modalForm}`}>
