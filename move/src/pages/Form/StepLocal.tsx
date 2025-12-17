@@ -1,3 +1,4 @@
+import { Controller } from 'react-hook-form';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 import InputDate from '../../components/InputDate';
@@ -5,8 +6,18 @@ import { useData } from '../../context/DataContext';
 import { EstadosBrasil } from '../../types/types';
 import useMedia from '../../hooks/useMedia';
 
+const formatDateToInput = (value?: Date | string | null) => {
+    if (!value) return '';
+    const date = value instanceof Date ? value : new Date(value);
+    if (isNaN(date.getTime())) return '';
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
 const StepLocal = () => {
-    const { register, errors, touchedFields } = useData();
+    const { register, errors, touchedFields, control } = useData();
     const isMobile = useMedia('(max-width:1000px)');
 
     return (
@@ -46,13 +57,21 @@ const StepLocal = () => {
                     error={touchedFields.cep ? errors.cep?.message : undefined}
                 />
 
-                <InputDate
-                    label="Data do envio"
-                    placeholder="Selecione uma data"
-                    {...register("data", {
-                        setValueAs: (value) => value ? new Date(value) : undefined
-                    })}
-                    error={touchedFields.data ? errors.data?.message : undefined}
+                <Controller
+                    control={control}
+                    name="data"
+                    defaultValue={undefined}
+                    render={({ field }) => (
+                        <InputDate
+                            label="Data do envio"
+                            placeholder="Selecione uma data"
+                            id="data"
+                            value={formatDateToInput(field.value)}
+                            onChange={(e) => field.onChange(e.target.value ? new Date(e.target.value) : undefined)}
+                            onBlur={field.onBlur}
+                            error={touchedFields.data ? errors.data?.message : undefined}
+                        />
+                    )}
                 />
             </div>
         </div>
