@@ -10,10 +10,12 @@ function App() {
     <div>
       <DataContextProvider>
         <Header />
-        <LazyOnView importFunc={() => import('./pages/Services/Services')} fallback={<Loading />} />
-        <LazyOnView importFunc={() => import('./pages/Move/Move')} fallback={<Loading />} />
-        <LazyOnView importFunc={() => import('./pages/Works/Works')} fallback={<Loading />} />
-        <LazyOnView importFunc={() => import('./pages/Local/Local')} fallback={<Loading />} />
+        <main id="main-content">
+          <LazyOnView importFunc={() => import('./pages/Services/Services')} fallback={<Loading />} />
+          <LazyOnView importFunc={() => import('./pages/Move/Move')} fallback={<Loading />} />
+          <LazyOnView importFunc={() => import('./pages/Works/Works')} fallback={<Loading />} />
+          <LazyOnView importFunc={() => import('./pages/Local/Local')} fallback={<Loading />} />
+        </main>
       </DataContextProvider>
     </div>
   )
