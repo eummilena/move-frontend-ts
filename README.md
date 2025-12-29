@@ -61,7 +61,7 @@ npm install
 npm run dev
 ```
 
-## 🧪 Status do Projeto
+##  Status do Projeto
 
 Em desenvolvimento. Projeto em evolução contínua com foco em aprendizado e portfólio.
 
