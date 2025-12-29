@@ -1,4 +1,4 @@
-# Move 💸
+# Move 
 
 Aplicação front-end para simulação e visualização de orçamento pessoal. O foco do projeto é **React + TypeScript**, organização de código, boas práticas e clareza de UI.
 
