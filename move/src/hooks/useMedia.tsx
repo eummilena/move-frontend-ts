@@ -3,17 +3,22 @@ import { useEffect, useState } from 'react'
 
 const useMedia = (media: string) => {
 
-    const [match, setMatch] = useState(false);
+    const [match, setMatch] = useState(() => window.matchMedia(media).matches);
 
     useEffect(() => {
-        function changeMatch() {
-            const { matches } = window.matchMedia(media);
-            setMatch(matches);
-        }
-        changeMatch();
-        window.addEventListener('resize', changeMatch);
+
+        const mediaQuery = window.matchMedia(media);
+
+
+        const handler = (event: MediaQueryListEvent) => {
+            setMatch(event.matches);
+        };
+
+        mediaQuery.addEventListener('change', handler);
+
         return () => {
-            window.removeEventListener('resize', changeMatch);
+
+            mediaQuery.removeEventListener('change', handler);
         }
     }, [media])
 

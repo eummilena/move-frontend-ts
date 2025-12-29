@@ -85,7 +85,7 @@
     color: var(--bg-1);
     background: var(--black-1);
 }
-.close, .closeButton{
+.closeButton{
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     text-transform: uppercase;
     cursor: pointer;
@@ -94,10 +94,9 @@
     border: none;
 
 }
-.close:hover,.closeButton:hover{
+.closeButton:hover{
 transform: scale(1.1);
 }
-
 
 .close{
     position: absolute;

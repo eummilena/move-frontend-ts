@@ -25,18 +25,20 @@ const services = [
 
 const Services = () => {
     return (
-        <section className={styles.section}>
-            <h2>Nossos Serviços</h2>
+        <section className={styles.section} aria-labelledby="servicesHeading">
+            <h2 id="servicesHeading">Nossos Serviços</h2>
             <h3>Serviços Personalizados</h3>
-            <div className={styles.services}>
+            <ul className={styles.services} role="list" aria-labelledby="servicesHeading">
                 {services.map((serv) => (
-                    <article key={serv.icon}>
-                        <img src={serv.icon} alt='' />
-                        <h4>{serv.topic}</h4>
-                        <p>{serv.description}</p>
-                    </article>
+                    <li key={serv.topic}>
+                        <article>
+                            <img src={serv.icon} alt="" aria-hidden="true" />
+                            <h4>{serv.topic}</h4>
+                            <p>{serv.description}</p>
+                        </article>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </section>
     )
 }

@@ -62,7 +62,7 @@ const Form = () => {
         document.addEventListener('keydown', handleKeyDown);
 
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [form, setForm])
+    }, [setForm])
 
 
     const onSubmit = async (data: IFormData) => {
@@ -83,12 +83,12 @@ const Form = () => {
     }
     return (
         <div className={`${styles.modal}`}
-            role="dialog"
+            role="modal"
             aria-modal="true"
             aria-labelledby="Formulário"
         >
             {loading && <div className={styles.loadingOverlay}><Loading overlay /></div>}
-            <Button className={` ${styles.close}`} onClick={() => setForm(false)}
+            <Button className={`close ${styles.close}`} onClick={() => setForm(false)}
             >Fechar</Button>
             <div className={`${styles.modalForm}`}>
                 <h1>Vamos começar?</h1>

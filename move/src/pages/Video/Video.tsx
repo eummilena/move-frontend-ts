@@ -20,14 +20,14 @@ const Video = () => {
 
     return (
         <div className={styles.div}
-            role="dialog"
+            role="modal"
             aria-modal="true"
             aria-labelledby="Homens trabalhando"
             onKeyDown={handleKeyDown}
         >
             <Button
                 onClick={() => setShowVideo(false)}
-                className={styles.button} aria-label="Fechar vídeo">
+                className="close" aria-label="Fechar vídeo">
                 Fechar
             </Button>
             <figure>

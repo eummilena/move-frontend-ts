@@ -1,0 +1,18 @@
+{
+  "480": {
+    "avif": "generated/wallpaper-house-480.avif",
+    "webp": "generated/wallpaper-house-480.webp"
+  },
+  "768": {
+    "avif": "generated/wallpaper-house-768.avif",
+    "webp": "generated/wallpaper-house-768.webp"
+  },
+  "1200": {
+    "avif": "generated/wallpaper-house-1200.avif",
+    "webp": "generated/wallpaper-house-1200.webp"
+  },
+  "2000": {
+    "avif": "generated/wallpaper-house-2000.avif",
+    "webp": "generated/wallpaper-house-2000.webp"
+  }
+}
