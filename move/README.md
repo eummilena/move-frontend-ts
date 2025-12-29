@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# Move 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação front-end para simulação e visualização de orçamento pessoal. O foco do projeto é **React + TypeScript**, organização de código, boas práticas e clareza de UI.
 
-Currently, two official plugins are available:
+##  Objetivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Permitir que o usuário informe seus dados pessoais e detalhes da mudança para visualizar um **orçamento de mudança** de forma simples e direta. Projeto pensado para **portfólio**, priorizando legibilidade, tipagem e estrutura.
 
-## React Compiler
+##  Escopo do Projeto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Simulação de orçamento de mudança
+* Coleta de dados do usuário:
 
-## Expanding the ESLint configuration
+  * Nome e sobrenome
+  * Email e telefone
+  * Endereço completo
+  * Descrição dos móveis
+* Cálculo e exibição do valor final do orçamento
+* Separação clara entre lógica e UI
+* Código escalável e fácil de manter
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+##  Tecnologias
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* React
+* TypeScript
+* Vite
+* CSS Modules
+* API mock (MockAPI)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📁 Estrutura de Pastas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├─ api/           # Configuração de chamadas HTTP
+├─ components/    # Componentes reutilizáveis
+├─ pages/         # Páginas da aplicação
+├─ hooks/         # Hooks customizados
+├─ types/         # Tipagens globais
+├─ styles/        # Estilos globais
+└─ main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+##  Fluxo da Aplicação
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Usuário preenche os dados pessoais e informações da mudança
+2. Os dados são processados no front-end
+3. O orçamento é calculado
+4. O valor final é exibido na interface
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📌 Decisões Técnicas
+
+* **TypeScript** para garantir segurança e previsibilidade
+* **CSS Modules** para evitar conflitos de estilo
+* **MockAPI** para simular consumo de API real
+* Context será utilizado apenas se houver compartilhamento real de estado
+
+## 🚀 Como Rodar o Projeto
+
+```bash
+npm install
+npm run dev
 ```
+
+##  Status do Projeto
+
+Em desenvolvimento. Projeto em evolução contínua com foco em aprendizado e portfólio.
+
+---
+
+Feito para consolidar conhecimentos em **React + TypeScript** e demonstrar organização de código no front-end.
