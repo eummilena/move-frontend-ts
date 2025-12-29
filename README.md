@@ -57,6 +57,7 @@ src/
 ##  Como Rodar o Projeto
 
 ```bash
+cd move
 npm install
 npm run dev
 ```
