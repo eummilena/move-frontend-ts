@@ -18,7 +18,7 @@ export async function criarOrcamento(
         ...data, valor,
         prazoDias: data.tipo === 'Industrial' ? 7 : 3
     }
-    console.log(payload);
+    // console.log(payload);
 
     const response = await fetch(API_URL, {
         method: "POST",
