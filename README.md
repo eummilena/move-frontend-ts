@@ -66,6 +66,55 @@ npm run dev
 
 Em desenvolvimento. Projeto em evolução contínua com foco em aprendizado e portfólio.
 
+##  Imagens 📸
+
+Abaixo estão capturas de tela e ilustrações da aplicação (disponíveis em `docs/images`):
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="docs/images/Header.png" alt="Header" width="300"><br>
+      <small>Header</small>
+    </td>
+    <td align="center">
+      <img src="docs/images/Move.png" alt="Move" width="300"><br>
+      <small>Move</small>
+    </td>
+    <td align="center">
+      <img src="docs/images/Services.png" alt="Services" width="300"><br>
+      <small>Services</small>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/images/Step1.png" alt="Step1" width="300"><br>
+      <small>Step1</small>
+    </td>
+    <td align="center">
+      <img src="docs/images/Step2.png" alt="Step2" width="300"><br>
+      <small>Step2</small>
+    </td>
+    <td align="center">
+      <img src="docs/images/Step3.png" alt="Step3" width="300"><br>
+      <small>Step3</small>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/images/Step4.png" alt="Step4" width="300"><br>
+      <small>Step4</small>
+    </td>
+    <td align="center">
+      <img src="docs/images/Steps.png" alt="Steps" width="300"><br>
+      <small>Steps</small>
+    </td>
+    <td align="center">
+      <img src="docs/images/Video-modal.png" alt="Video modal" width="300"><br>
+      <small>Video modal</small>
+    </td>
+  </tr>
+</table>
+
 ---
 
 Feito para consolidar conhecimentos em **React + TypeScript** e demonstrar organização de código no front-end.
